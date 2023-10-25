@@ -31,10 +31,22 @@ while True:
         print("The tag is moving")
     else:
         print("The tag is stationary")
+    
+    # Get the iBeacon data
+    ibeacon_data = dev.getScanData()[0]
 
+    # Parse the iBeacon data
+    mac_address = ibeacon_data[0]
+    battery_level = int(ibeacon_data[2][38:40], 16)
+
+    # Print the MAC address, battery level, and motion status
+    print("MAC address: {}".format(mac_address))
+    print("Battery level: {}%".format(battery_level))
+    print("Motion status: {}".format("moving" if abs(x_g) > 0.1 or abs(y_g) > 0.1 or abs(z_g) > 0.1 else "stationary"))
+    
     # Disconnect from the BLE beacon
     dev.disconnect()
 
     # Wait for 1 second before running the loop again
     time.sleep(1)
-
+    

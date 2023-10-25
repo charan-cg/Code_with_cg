@@ -38,5 +38,11 @@ This README file provides an overview of the code that ingests accelerometer dat
 - `if abs(x_g) > MOVEMENT_THRESHOLD or abs(y_g) > MOVEMENT_THRESHOLD or abs(z_g) > MOVEMENT_THRESHOLD:`: Check if the g-force in any direction is greater than the threshold for detecting movement.
 - `print("The tag is moving")`: Print "The tag is moving" if the tag is moving.
 - `print("The tag is stationary")`: Print "The tag is stationary" if the tag is stationary.
+- `ibeacon_data = dev.getScanData()[0]`: Get the data of the tag
+- `mac_address = ibeacon_data[0]`:Mac_address of the ibeacon
+- ` battery_level = int(ibeacon_data[2][38:40], 16)`: Gets the Battery level of the ibeacon
+- `print("MAC address: {}".format(mac_address))`: Print the Mac Address
+- `print("Battery level: {}%".format(battery_level))`: Print the Battery Level
+- `print("Motion status: {}".format("moving" if abs(x_g) > 0.1 or abs(y_g) > 0.1 or abs(z_g) > 0.1 else "stationary"))`: Print the Motion Status
 - The code disconnects from the BLE beacon after each iteration to release the resources used by the connection.
 
