@@ -11,4 +11,5 @@ This code provides an example of how to detect movement using an accelerometer a
 
 1. Run the Python file.
 2. Observe the output in the console.
+
 Note: The code requires an accelerometer and iBeacon broadcasts to function properly. The raw packet examples provided in the code are for demonstration purposes only and may not work with all devices.
